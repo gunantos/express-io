@@ -16,12 +16,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/monatheoctocat/my_package.git"
+    "url": "https://github.com/gunantos/express-io"
   },
   "bugs": {
-    "url": "https://github.com/monatheoctocat/my_package/issues"
+    "url": "https://github.com/gunantos/express-io/issues"
   },
-  "homepage": "https://github.com/monatheoctocat/my_package",
+  "homepage": "https://github.com/gunantos/express-io",
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/node": "^7.18.10",
