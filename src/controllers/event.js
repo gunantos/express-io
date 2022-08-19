@@ -1,4 +1,4 @@
-export default class Event {
+module.exports = class Event {
     io = null;
     init(io) {
         this.io = io

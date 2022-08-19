@@ -1,7 +1,7 @@
-import fs from "fs"
-import path from "path"
+const fs =require("fs");
+const path = require("path");
 
-export function getFiles(dir, extension = '.js', files_ = []) {
+function getFiles(dir, extension = '.js', files_ = []) {
     const files = fs.readdirSync(dir)
     for (var i in files) {
         var name = path.join(dir, files[i])
@@ -23,4 +23,8 @@ export function getFiles(dir, extension = '.js', files_ = []) {
         }
     }
     return files_
+}
+
+module.exports = {
+    getFiles
 }

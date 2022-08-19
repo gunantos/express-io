@@ -1,78 +1,77 @@
-import app_cfg from './config/app_cfg';
-import io_cfg from './config/io_cfg';
-import server_cfg from './config/server_cfg';
-import config from './config';
-import { isEmpty } from './utils/string_utils';
-import router from './routing';
-import dotenv from 'dotenv';
-
+const app_cfg = require('./config/app_cfg.js');
+const io_cfg = require('./config/io_cfg.js');
+const server_cfg = require('./config/server_cfg.js');
+const config = require('./config/index.js');
+const { isEmpty } = require('./utils/string_utils.js');
+const router = require('./routing.js');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const { createAdapter } = require('@socket.io/mongo-adapter');
 dotenv.config()
 
-export default class APP {
-    #_io = null;
-    #_server = null;
-    #_app = null;
-    #_config = null;
+module.exports = class APP {
+    static #_io = null;
+    static #_server = null;
+    static #_app = null;
+    static #_config = null;
 
-    get app() { return this.#_app }
-    get io() { return this.#_io; }
-    get server() { return this.#_server; }
-    get router() { return this.#_router; }
-    get config() { return this.#_config; }
+    static get app() { return APP.#_app }
+    static get io() { return APP.#_io; }
+    static get server() { return APP.#_server; }
+    static get config() { return APP.#_config; }
 
-    static async start() {
-        router(this.#_app, this.#_io).then(() => {
-            mongoose.connect(process.env.MONGO_DB_URL, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true
-            }, (res) => {
-                console.log(res)
-                console.log(`DB up and running`);
-            })
-            const collection = mongoose.connection.createCollection(process.env.SOCKET_IO_ADAPTER, {
-                capped: true,
-                size: 1e6
-            })
-            collection.then(db => io.adapter(createAdapter(db))).catch(error => {
-                if (error.code == 48) {
-                    io.adapter(createAdapter(mongoose.connection.collection(process.env.SOCKET_IO_ADAPTER)))
-                    return;
-                }
-                console.log(error)
-            })
-            
-                global.server.listen(process.env.PORT, () => {
-                console.log(`Server up and running on port ${process.env.PORT}`);
+    static start() {
+        APP.init().then(() => {
+            router(APP.#_app, APP.#_io).then(() => {
+                mongoose.connect(process.env.MONGO_DB_URL, {
+                    useNewUrlParser: true,
+                    useUnifiedTopology: true
+                }, () => {
+                })
+                const collection = mongoose.connection.createCollection(process.env.SOCKET_IO_ADAPTER, {
+                    capped: true,
+                    size: 1e6
+                })
+                collection.then(db => APP.#_io.adapter(createAdapter(db))).catch(error => {
+                    if (error.code == 48) {
+                        APP.#_io.adapter(createAdapter(mongoose.connection.collection(process.env.SOCKET_IO_ADAPTER)))
+                        return;
+                    }
+                })
+                
+                    APP.#_server.listen(process.env.PORT, () => {
+                    console.log(`Server up and running on port ${process.env.PORT}`);
+                })
             })
         })
     }
 
     static async init(_path = process.cwd()) {
-        this.#_config = await config(_path)
-        this.app(cfg.app_cfg);
-        this.server(cfg.server_cfg);
-        this.io(cfg.io_cfg);
+        APP.#_config = await config(_path)
+        APP.app = APP.#_config.app_cfg;
+        APP.server = APP.#_config.server_cfg;
+        APP.io = APP.#_config.io_cfg;
     }
 
-    set app(cfg = app_cfg) {
+    static set app(cfg = app_cfg) {
         if (isEmpty(cfg)) {
             cfg = app_cfg
         }
-        this.#_app = cfg.app;
-        this.#_app.use(cfg.cors);
-        this.#_app.use(cfg.parameter);
+        APP.#_app = cfg.express;
+        APP.#_app.use(cfg.cors);
+        APP.#_app.use(cfg.parameter);
     }
 
-    set server(cfg = server_cfg) {
+    static set server(cfg = server_cfg) {
         if (isEmpty(cfg)) {
             cfg = server_cfg
         }
-        this.#_server = cfg(this.#_app);
+        APP.#_server = cfg(APP.#_app);
     }
-    set io(cfg = io_cfg) {
+    static set io(cfg = io_cfg) {
         if (isEmpty(cfg)) {
             cfg = io_cfg
         }
-        this.#_io = cfg(this.#_server);
+        APP.#_io = cfg(APP.#_server);
     }
 }

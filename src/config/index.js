@@ -1,7 +1,7 @@
-import path from "path"
-import { getFiles } from '../utils/files_utils'
+const path = require("path");
+const { getFiles } = require('../utils/files_utils');
 
-export default async (_path = process.cwd()) => {
+module.exports = async (_path = process.cwd()) => {
     const cfg = {}
     const proses_path = path.join(_path, "src", "config")
     const files = getFiles(proses_path)
@@ -10,7 +10,8 @@ export default async (_path = process.cwd()) => {
         var nm = files[i].replace(proses_path, '')
         const _c = await import(path.join(proses_path, nm));
         nm = nm.replace('.js', '')
-        nm = nm.replace(/[\/]/g, '')
+        nm = nm.replaceAll('/', '')
+        nm = nm.replaceAll('\\', '')
         cfg[nm] = _c.default
     }
     return cfg;

@@ -1,4 +1,4 @@
-export function isEmpty(val) {
+function isEmpty(val) {
     return (
     (!val)
     || (val === undefined)
@@ -7,4 +7,8 @@ export function isEmpty(val) {
     || ((val?.length !== undefined) && (val.length === 0))
     || (typeof val === 'object' && Object.keys(val).length === 0) 
   );
+}
+
+module.exports = {
+  isEmpty
 }

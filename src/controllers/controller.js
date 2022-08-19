@@ -1,10 +1,10 @@
-import express from 'express'
-import fs from "fs"
-import path from "path"
-import { isEmpty } from './utils/string_utils';
-import mongoose from 'mongoose';
+const express = require('express');
+const fs = require("fs");
+const path =require("path");
+const { isEmpty } =require('../utils/string_utils');
+const mongoose =require('mongoose');
 
-export default class Controller {
+module.exports = class Controller {
     event= null;
     model= null;
     option = null;

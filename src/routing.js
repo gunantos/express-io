@@ -1,9 +1,9 @@
-import fs from "fs"
-import path from "path"
-import { getFiles } from "../utils/files_utils"
+const fs = require("fs");
+const path  = require("path");
+const { getFiles }  = require("./utils/files_utils");
 
 module.exports = async (app, io) => {
-    var p = path.resolve('src/controllers')
+    var p = path.join(process.cwd(), 'src', 'controllers')
     var list = getFiles(p, 'js')
     for (var i in list) {
         var file = list[i]

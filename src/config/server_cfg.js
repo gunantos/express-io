@@ -1,4 +1,5 @@
-import http from 'http'
-export default (app) => {
+const http = require('http');
+
+module.exports= function (app) {
     return http.createServer(app);
 }

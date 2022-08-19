@@ -1,8 +1,9 @@
-import express from 'express'
-import cors from 'cors'
+const express = require('express');
+const cors = require('cors');
 
-export default app_cfg = {
+const app_cfg = {
     express: express(),
     cors: cors(),
     parameter: express.json()
 }
+module.exports = app_cfg

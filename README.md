@@ -7,7 +7,7 @@
   [![NPM Downloads][npm-downloads-image]][npm-downloads-url]
 
 ```js
-const expressio = require('expressio')
+const expressio = require('express-io')
 const app = expressio()
 ```
 
@@ -26,7 +26,7 @@ Installation is done using the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 ```console
-$ npm install express
+$ npm install express-io
 ```
 
 Follow [our installing guide](http://expressjs.com/en/starter/installing.html)
@@ -136,11 +136,7 @@ $ npm test
 
 ## People
 
-The original author of Express is [TJ Holowaychuk](https://github.com/tj)
-
-The current lead maintainer is [Douglas Christopher Wilson](https://github.com/dougwilson)
-
-[List of all contributors](https://github.com/expressjs/express/graphs/contributors)
+[List of all contributors](https://github.com/gunantos/express-io/graphs/contributors)
 
 ## License
 

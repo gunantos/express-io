@@ -1,11 +1,12 @@
 {
-  "name": "expressio",
-  "version": "1.0.0",
+  "name": "express-io",
+  "version": "0.0.1",
   "description": "Library API Realtime dengan Express dan socket.io",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "babel-node src/index.js",
-    "test": "babel-node test/index.js"
+    "testing": "babel-node test/index.js",
+    "test": "mocha --reporter spec"
   },
   "keywords": [
     "realtime",
@@ -32,7 +33,9 @@
   },
   "dependencies": {
     "@socket.io/mongo-adapter": "^0.2.1",
+    "chai": "^4.3.6",
     "express": "^4.18.1",
+    "mocha": "^10.0.0",
     "mongodb": "^4.8.1",
     "mongoose": "^6.5.2",
     "socket.io": "^4.5.1"

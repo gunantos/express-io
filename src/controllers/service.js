@@ -1,8 +1,8 @@
-import express from 'express'
-import fs from "fs"
-import path from "path"
+const express = require('express');
+const fs = require("fs");
+const path = require("path");
 
-export default class Service  {
+module.exports = class Service  {
     model = null;
     option = {limit: 10}
 

@@ -1,6 +1,6 @@
-import socketIO from 'socket.io';
+const socketIO =require('socket.io');
 
-export default (server) => {
+module.exports = function (server) {
     return socketIO(server, {
         tranports: ['polling'],
         cors: {
