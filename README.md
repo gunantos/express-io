@@ -1,7 +1,7 @@
 [![APP KITA Logo](https://app-kita.com/img/logo-teks.965d24bf.png)](http://app-kita.com/)
 
   Fast, unopinionated, minimalist web framework for [node](http://nodejs.org).
-
+[![Node.js Package](https://github.com/gunantos/express-io/actions/workflows/npm-publish-github-packages.yml/badge.svg)](https://github.com/gunantos/express-io/actions/workflows/npm-publish-github-packages.yml)
   [![NPM Version][npm-version-image]][npm-url]
   [![NPM Install Size][npm-install-size-image]][npm-install-size-url]
   [![NPM Downloads][npm-downloads-image]][npm-downloads-url]
