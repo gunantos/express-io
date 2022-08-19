@@ -1,5 +1,5 @@
 {
-  "name": "express-io",
+  "name": "@gunantos/express-io",
   "version": "0.0.1",
   "description": "Library API Realtime dengan Express dan socket.io",
   "main": "src/index.js",
@@ -27,7 +27,7 @@
     "url": "https://github.com/gunantos/express-io/issues"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/app-kita-com"
+    "registry": "https://npm.pkg.github.com/gunantos"
   },
   "homepage": "https://github.com/gunantos/express-io",
   "devDependencies": {
