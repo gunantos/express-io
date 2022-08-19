@@ -4,7 +4,8 @@
   "description": "Library API Realtime dengan Express dan socket.io",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node src/index.js",
+    "test": "babel-node test/index.js"
   },
   "keywords": [
     "realtime",
@@ -27,8 +28,7 @@
     "@babel/node": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
     "babel-loader": "^8.2.5",
-    "dotenv": "^16.0.1",
-    "nodemon": "^2.0.19"
+    "dotenv": "^16.0.1"
   },
   "dependencies": {
     "@socket.io/mongo-adapter": "^0.2.1",
@@ -36,5 +36,8 @@
     "mongodb": "^4.8.1",
     "mongoose": "^6.5.2",
     "socket.io": "^4.5.1"
+  },
+  "directories": {
+    "@": "./src"
   }
 }
