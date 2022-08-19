@@ -14,7 +14,10 @@
     "express",
     "socket.io"
   ],
-  "author": "appkita",
+  "author": {
+    "name": "gunantos",
+    "email": "gunanto.simamora@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -22,6 +25,9 @@
   },
   "bugs": {
     "url": "https://github.com/gunantos/express-io/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/app-kita-com"
   },
   "homepage": "https://github.com/gunantos/express-io",
   "devDependencies": {
