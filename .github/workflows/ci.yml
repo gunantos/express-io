@@ -4,8 +4,8 @@
 name: Publish
 
 on:
-  release:
-    types: [published]
+  - pull_request
+  - push
 
 jobs:
   build:
