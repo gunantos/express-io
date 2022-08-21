@@ -14,14 +14,11 @@
     "express",
     "socket.io"
   ],
-  "author": {
-    "name": "gunantos",
-    "email": "gunanto.simamora@gmail.com"
-  },
+  "author": "gunantos <gunanto.simamora@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gunantos/express-io"
+    "url": "git+https://github.com/gunantos/express-io.git"
   },
   "bugs": {
     "url": "https://github.com/gunantos/express-io/issues"
@@ -47,7 +44,7 @@
     "socket.io": "^4.5.1"
   },
   "directories": {
-    "@": "./src"
+    "test": "test"
   },
   "release": {
     "plugins": [
@@ -56,6 +53,8 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ],
-    "branches": ["main"]
+    "branches": [
+      "main"
+    ]
   }
 }
