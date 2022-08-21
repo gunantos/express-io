@@ -90,3 +90,6 @@ $ npm test
 [npm-downloads-image]: https://badgen.net/github/assets-dl/gunantos/express-io
 [npm-install-size-image]: https://badgen.net/packagephobia/install/express-io
 [npm-version-image]: https://badgen.net/github/release/gunantos/express-io
+[npm-url]: https://github.com/gunantos/express-io/packages/1604552
+[npm-install-size-url]: https://packagephobia.com/result?p=express-io
+[npm-downloads-url]: https://npmcharts.com/compare/express-io?minimal=true
