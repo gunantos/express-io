@@ -87,7 +87,7 @@ $ npm test
 
   [MIT](LICENSE)
 
-[npm-downloads-image]: https://badgen.net/github/assets-dl/gunantos/express-io
+[npm-downloads-image]: https://badgen.net/github/dependents-pkg/gunantos/express-io
 [npm-install-size-image]: https://badgen.net/github/license/gunantos/express-io
 [npm-version-image]: https://badgen.net/github/tag/gunantos/express-io
 [npm-url]: https://github.com/gunantos/express-io/packages/1604552
